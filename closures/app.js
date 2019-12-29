@@ -84,5 +84,19 @@ class Car {
     }
 }
 
-let celica = new Car('Toyota', 'Black')
-console.log(celica)
+class Animal {
+    constructor(name) {
+        this.name = name;
+        this.speed = 0;
+    }
+
+    run(speed) {
+        this.speed += speed;
+        return `${this.name} runs with a speed of ${this.speed}.`
+    }
+
+    stop() {
+        this.speed = 0;
+        return `${this.name} is standing still`
+    }
+}
