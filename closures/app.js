@@ -90,9 +90,9 @@ class Animal {
         this.speed = 0;
     }
 
-    run(speed) {
+    swim(speed) {
         this.speed += speed;
-        return `${this.name} runs with a speed of ${this.speed}.`
+        return `${this.name} swims with a speed of ${this.speed}.`
     }
 
     stop() {
@@ -100,3 +100,8 @@ class Animal {
         return `${this.name} is standing still`
     }
 }
+
+let fish = new Animal('nemo')
+// console.log(fish);
+
+console.log(fish.swim(5))
