@@ -223,6 +223,9 @@ class Animals {
   }
 }
 ```
+### Class inheritence
+
+Resources: https://javascript.info/class-inheritance
 
 ### Make an ATM - Lab 
 
