@@ -84,6 +84,7 @@ class Car {
     }
 }
 
+// classes 103
 class Animal {
     constructor(name) {
         this.name = name;
@@ -101,7 +102,74 @@ class Animal {
     }
 }
 
-let fish = new Animal('nemo')
-// console.log(fish);
+// classes 104
 
-console.log(fish.swim(5))
+class Fish extends Animal {
+    jump() {
+        return `${this.name} jumped.`
+    }
+}
+
+
+const nemo = new Fish('nemo')
+// console.log(nemo.jump());
+
+
+
+// LAB
+
+
+
+class ATM {
+    constructor(type) {
+        this.type = type;
+        this.money = 0;
+        this.transactions = [];
+        this.backupAccount = 100;
+    }
+
+    withdraw(amount) {
+        this.money -= amount;
+        this.transactions.push({
+            transaction: 'withdraw',
+            amount: -amount
+        })
+
+        if (this.money <= 0) {
+            const dues = Math.abs(this.money);
+            this.backupAccount -= dues;
+            this.money += dues;
+        }
+
+    }
+
+    deposit(amount) {
+        this.money += amount;
+        this.transactions.push({
+            transaction: 'deposit',
+            amount
+        })
+    }
+
+    showBalance() {
+        return `Your Balance is: ${this.money}`
+    }
+
+    showTransactions() {
+        return `-----\nYour transactions history: \n${this.transactions.map(t => `${t.transaction} => ${t.amount}`).join('\n')}`
+    }
+}
+
+const atm = new ATM('checking');
+
+atm.deposit(3000)
+console.log(atm.showBalance())
+
+atm.withdraw(200)
+console.log(atm.showBalance())
+
+atm.withdraw(50)
+console.log(atm.showBalance())
+
+console.log(atm.showTransactions());
+
